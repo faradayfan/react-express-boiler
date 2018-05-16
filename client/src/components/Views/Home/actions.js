@@ -1,9 +1,15 @@
 
-import { UPDATE_HOME_CONTENT } from './constants'
+import { UPDATE_HOME_CONTENT, UPDATE_ARTICLES_LIST } from './constants'
 
-export const updateContent = () => {
+export const initiateContentUpdate = () => {
   return {
     type: UPDATE_HOME_CONTENT
   }
+}
 
+export const updateArticlesList = (articles) => {
+  return {
+    type: UPDATE_ARTICLES_LIST,
+    articles
+  }
 }

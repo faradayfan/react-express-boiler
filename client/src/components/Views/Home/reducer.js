@@ -1,22 +1,24 @@
-import axios from 'axios'
 
-import { UPDATE_HOME_CONTENT } from "./constants";
-
+import { UPDATE_HOME_CONTENT, UPDATE_ARTICLES_LIST } from "./constants";
 
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  articles: []
 }
 
 
-export default async (state = initialState, action) => {
-  console.log('handling', action, state)
+export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_HOME_CONTENT:
-      let result = await axios.get('/news', { crossdomain: true })
+      return {
+        ...state,
+        isLoading: true,
+      }
+    case UPDATE_ARTICLES_LIST:
       return {
         ...state,
         isLoading: false,
-        articles: result
+        articles: [...action.articles]
       }
     default:
       return {
