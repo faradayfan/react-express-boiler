@@ -10,7 +10,10 @@ export class Home extends Component {
 
     render() {
         return (
-            <div>{this.props.articles}</div>
+            <div>
+                <div>Articles</div>
+                <div>{this.props.articles}</div>
+            </div>
         )
     }
 }
