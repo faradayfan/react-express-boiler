@@ -9,7 +9,7 @@ import createHistory from 'history/createBrowserHistory'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 
 import App from './App';
-import articleListReducers from './components/Views/ArticleList/reducers'
+import homeReducer from './components/Views/Home/reducer'
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory()
@@ -21,7 +21,7 @@ const middleware = routerMiddleware(history)
 // Also apply our middleware for navigating
 const store = createStore(
     combineReducers({
-        articles: articleListReducers,
+        home: homeReducer,
         router: routerReducer
     }),
     applyMiddleware(middleware)
