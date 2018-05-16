@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { initiateContentUpdate, updateArticlesList } from './actions'
 import { connect } from 'react-redux';
 import axios from 'axios'
+import { API_SERVER_HOST } from '../../../constants'
 
 
 const Articles = ({ articles = [] }) => (
@@ -37,7 +38,7 @@ export const mapStateToProps = ({ home }) => ({
 export const mapDispatchToProps = dispatch => ({
     startLoad: () => {
         dispatch(initiateContentUpdate())
-        axios.get('http://localhost:4000/news', { crossdomain: true })
+        axios.get(`${API_SERVER_HOST}/news`, { crossdomain: true })
             .then(result => {
                 dispatch(updateArticlesList(result.data))
             })
