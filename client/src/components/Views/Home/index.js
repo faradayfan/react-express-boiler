@@ -10,13 +10,14 @@ export class Home extends Component {
 
     render() {
         return (
-            <div>Home</div>
+            <div>{this.props.articles}</div>
         )
     }
 }
 
 export const mapStateToProps = ({ home }) => ({
-    isLoading: home.isLoading
+    isLoading: home.isLoading,
+    articles: home.articles
 })
 export const mapDispatchToProps = dispatch => ({
     startLoad: () => {
